@@ -8,6 +8,8 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+			new FOS\UserBundle\FOSUserBundle(),
+			new Acme\UserBundle\UserBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),

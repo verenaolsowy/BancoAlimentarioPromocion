@@ -1,0 +1,3 @@
+acme_donante_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeDonanteBundle:Default:index }

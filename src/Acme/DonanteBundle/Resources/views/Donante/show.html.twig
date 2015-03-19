@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Donante</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Razonsocial</th>
+                <td>{{ entity.razonSocial }}</td>
+            </tr>
+            <tr>
+                <th>Apellidocontacto</th>
+                <td>{{ entity.apellidoContacto }}</td>
+            </tr>
+            <tr>
+                <th>Nombrecontacto</th>
+                <td>{{ entity.nombreContacto }}</td>
+            </tr>
+            <tr>
+                <th>Telefonocontacto</th>
+                <td>{{ entity.telefonoContacto }}</td>
+            </tr>
+            <tr>
+                <th>Mailcontacto</th>
+                <td>{{ entity.mailContacto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('donante') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('donante_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

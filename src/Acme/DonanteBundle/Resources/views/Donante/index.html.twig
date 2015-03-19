@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Donante list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Razonsocial</th>
+                <th>Apellidocontacto</th>
+                <th>Nombrecontacto</th>
+                <th>Telefonocontacto</th>
+                <th>Mailcontacto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('donante_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.razonSocial }}</td>
+                <td>{{ entity.apellidoContacto }}</td>
+                <td>{{ entity.nombreContacto }}</td>
+                <td>{{ entity.telefonoContacto }}</td>
+                <td>{{ entity.mailContacto }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('donante_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('donante_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('donante_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

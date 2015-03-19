@@ -1,3 +1,23 @@
+acme_configuracion:
+    resource: "@AcmeConfiguracionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_pedido:
+    resource: "@AcmePedidoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_alimento:
+    resource: "@AcmeAlimentoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_donante:
+    resource: "@AcmeDonanteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_entidad_receptora:
+    resource: "@AcmeEntidadReceptoraBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: @AppBundle/Controller/
     type:     annotation

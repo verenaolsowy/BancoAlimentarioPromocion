@@ -1,0 +1,15 @@
+Acme\EntidadReceptoraBundle\Entity\NecesidadEntidad:
+    type: entity
+    table: null
+    repositoryClass: Acme\EntidadReceptoraBundle\Entity\NecesidadEntidadRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descripcion:
+            type: string
+            length: '15'
+    lifecycleCallbacks: {  }

@@ -1,3 +1,7 @@
+user_user:
+    resource: "@UserBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
 fos_user_security:  
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>DetalleAlimento</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Fechavencimiento</th>
+                <td>{{ entity.fechaVencimiento|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Contenido</th>
+                <td>{{ entity.contenido }}</td>
+            </tr>
+            <tr>
+                <th>Pesounitario</th>
+                <td>{{ entity.pesoUnitario }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ entity.stock }}</td>
+            </tr>
+            <tr>
+                <th>Reservado</th>
+                <td>{{ entity.reservado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('detallealimento') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('detallealimento_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

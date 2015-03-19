@@ -1,0 +1,3 @@
+acme_entidad_receptora_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeEntidadReceptoraBundle:Default:index }

@@ -27,4 +27,14 @@ class User extends BaseUser
 
         // Aquí podremos añadir el código necesario.
     }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }

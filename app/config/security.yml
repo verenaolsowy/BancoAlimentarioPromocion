@@ -4,7 +4,9 @@ security:
         FOS\UserBundle\Model\UserInterface: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_CONSULTA: [ROLE_USER]
+        ROLE_GESTION:      [ROLE_CONSULTA]
+        ROLE_ADMIN:       [ROLE_GESTION]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
@@ -37,8 +39,8 @@ security:
                 check_path: _security_check
                 login_path: _demo_login
             logout:
-                path:   _demo_logout
-                target: _demo
+                path:   /login
+                target: /login
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"

@@ -7,6 +7,7 @@
 			<link rel="stylesheet" type="text/css" href="{{ asset('estiloPrincipal.css') }}">
 		{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+		
     </head>
     <body>
 	
@@ -17,7 +18,7 @@
 		  
 		  
 			<div id="Usuario">
-				{%if user is defined%}
+				{%if user is defined and user%}
 					<a class="botonLogOut" href="../logout">Logout</a>	
 						<h4 id="id-usuario"> Bienvenido  {{user.username}} </h4>
 				{%else%}
@@ -28,7 +29,22 @@
 			
 		</header>
 		<!-- fin del header copypasteado -->
-	
+		{% include "UserBundle:User:menuAdmin.html.twig" %}
+
+				
+	{#	{%if user is defined%}
+			{%if user.group=='admin'%}
+				{% include "UserBundle:User:menuAdmin.html.twig" %}
+				
+			{%elseif user.group=='gestion'%}
+				{% include "UserBundle:User:menuGestion.html.twig" %}
+				
+			{%elseif user.group=='consulta' %}
+				{% include "UserBundle:User:menuConsulta.html.twig" %}
+				
+			{%endif%}
+		{%endif%} #}
+		
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

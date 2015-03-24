@@ -15,11 +15,17 @@
 		<header>
 			<img id="logo" src="{{ asset('logo_web.jpg') }}" alt="Banco Alimentario La Plata">  
 		  
+		  
 			<div id="Usuario">
-				<a class="botonLogOut" href="logout">Logout</a>	
-					<h4 id="id-usuario"> Bienvenido  entity.user </h4> <!---- entity.user hay que imrpimirla con twig pero todavia no está el getter -->		
+				{%if user is defined%}
+					<a class="botonLogOut" href="../logout">Logout</a>	
+						<h4 id="id-usuario"> Bienvenido  {{user.username}} </h4>
+				{%else%}
+					<a class="botonLogOut" href="../login">Login</a>	
+				{%endif%}
 			</div>
-
+			
+			
 		</header>
 		<!-- fin del header copypasteado -->
 	

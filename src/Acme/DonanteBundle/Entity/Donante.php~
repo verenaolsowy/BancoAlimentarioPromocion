@@ -186,44 +186,4 @@ class Donante
     {
         return $this->mailContacto;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->alimento_donante = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add alimento_donante
-     *
-     * @param \Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante
-     * @return Donante
-     */
-    public function addAlimentoDonante(\Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante)
-    {
-        $this->alimento_donante[] = $alimentoDonante;
-
-        return $this;
-    }
-
-    /**
-     * Remove alimento_donante
-     *
-     * @param \Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante
-     */
-    public function removeAlimentoDonante(\Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante)
-    {
-        $this->alimento_donante->removeElement($alimentoDonante);
-    }
-
-    /**
-     * Get alimento_donante
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAlimentoDonante()
-    {
-        return $this->alimento_donante;
-    }
 }

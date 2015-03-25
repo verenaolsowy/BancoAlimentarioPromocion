@@ -1,0 +1,55 @@
+
+Acme\EntidadReceptoraBundle\Entity\EntidadReceptora:
+    type: entity
+    table: null
+    repositoryClass: Acme\EntidadReceptoraBundle\Entity\EntidadReceptoraRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        razonSocial:
+            type: string
+            length: '100'
+            column: razon_social
+        telefono:
+            type: string
+            length: '30'
+        domicilio:
+            type: string
+            length: '200'
+        latitud:
+            type: string
+            length: '15'
+        longitud:
+            type: string
+            length: '15'
+    manyToOne:
+        estado_entidad_id:
+            targetEntity: EstadoEntidad
+            inversedBy: entidades_receptoras
+            joinColumn:
+                name: estado_entidad_id
+                referencedColumnName: id
+        necesidad_entidad_id:
+            targetEntity: NecesidadEntidad
+            inversedBy: entidades_receptoras
+            joinColumn:
+                name: necesidad_entidad_id
+                referencedColumnName: id
+        servicio_prestado_id:
+            targetEntity: ServicioPrestado
+            inversedBy: entidades_receptoras
+            joinColumn:
+                name: servicio_prestado_id
+                referencedColumnName: id
+    oneToMany:
+        pedidosModelo:
+            targetEntity: Acme\PedidoBundle\Entity\PedidoModelo
+            mappedBy: entidad_receptora_id
+        entregasDirectas:
+            targetEntity : Acme\PedidoBundle\Entity\EntregaDirecta
+            mappedBy: entidad_receptora_id
+    lifecycleCallbacks: {  }

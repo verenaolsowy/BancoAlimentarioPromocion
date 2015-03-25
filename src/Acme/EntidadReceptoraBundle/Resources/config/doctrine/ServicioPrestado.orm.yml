@@ -12,4 +12,8 @@ Acme\EntidadReceptoraBundle\Entity\ServicioPrestado:
         descripcion:
             type: string
             length: '100'
+    oneToMany:
+        entidades_receptoras:
+            targetEntity: EntidadReceptora
+            mappedBy: servicio_prestado_id
     lifecycleCallbacks: {  }

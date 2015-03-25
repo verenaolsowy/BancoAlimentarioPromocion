@@ -82,10 +82,12 @@ class UserController extends Controller
     {
         $entity = new User();
         $form   = $this->createCreateForm($entity);
+        $user = $this->getUser();
 
         return $this->render('UserBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'user' => $user,
         ));
     }
 
@@ -99,6 +101,8 @@ class UserController extends Controller
 
         $entity = $em->getRepository('UserBundle:User')->find($id);
 
+        $user = $this->getUser();
+
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
@@ -108,6 +112,7 @@ class UserController extends Controller
         return $this->render('UserBundle:User:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'user' => $user,
         ));
     }
 
@@ -121,6 +126,8 @@ class UserController extends Controller
 
         $entity = $em->getRepository('UserBundle:User')->find($id);
 
+        $user = $this->getUser();
+
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
@@ -132,6 +139,7 @@ class UserController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'user' => $user,
         ));
     }
 

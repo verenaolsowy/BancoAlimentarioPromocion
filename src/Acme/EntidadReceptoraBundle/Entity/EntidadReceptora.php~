@@ -321,42 +321,4 @@ class EntidadReceptora
     {
         return $this->pedidosModelo;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $entregasDirectas;
-
-
-    /**
-     * Add entregasDirectas
-     *
-     * @param \Acme\PedidoBundle\Entity\EntregaDirecta $entregasDirectas
-     * @return EntidadReceptora
-     */
-    public function addEntregasDirecta(\Acme\PedidoBundle\Entity\EntregaDirecta $entregasDirectas)
-    {
-        $this->entregasDirectas[] = $entregasDirectas;
-
-        return $this;
-    }
-
-    /**
-     * Remove entregasDirectas
-     *
-     * @param \Acme\PedidoBundle\Entity\EntregaDirecta $entregasDirectas
-     */
-    public function removeEntregasDirecta(\Acme\PedidoBundle\Entity\EntregaDirecta $entregasDirectas)
-    {
-        $this->entregasDirectas->removeElement($entregasDirectas);
-    }
-
-    /**
-     * Get entregasDirectas
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEntregasDirectas()
-    {
-        return $this->entregasDirectas;
-    }
 }

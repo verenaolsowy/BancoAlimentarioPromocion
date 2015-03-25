@@ -12,4 +12,8 @@ Acme\EntidadReceptoraBundle\Entity\NecesidadEntidad:
         descripcion:
             type: string
             length: '15'
+    oneToMany:
+        entidades_receptoras:
+            targetEntity: EntidadReceptora
+            mappedBy: necesidad_entidad_id
     lifecycleCallbacks: {  }

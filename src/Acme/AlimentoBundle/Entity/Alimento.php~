@@ -95,4 +95,44 @@ class Alimento
     {
         return $this->descripcion;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->detalleAlimento = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add detalleAlimento
+     *
+     * @param \Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimento
+     * @return Alimento
+     */
+    public function addDetalleAlimento(\Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimento)
+    {
+        $this->detalleAlimento[] = $detalleAlimento;
+
+        return $this;
+    }
+
+    /**
+     * Remove detalleAlimento
+     *
+     * @param \Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimento
+     */
+    public function removeDetalleAlimento(\Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimento)
+    {
+        $this->detalleAlimento->removeElement($detalleAlimento);
+    }
+
+    /**
+     * Get detalleAlimento
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDetalleAlimento()
+    {
+        return $this->detalleAlimento;
+    }
 }

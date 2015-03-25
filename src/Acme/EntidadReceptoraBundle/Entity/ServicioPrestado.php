@@ -97,4 +97,10 @@ class ServicioPrestado
     {
         return $this->entidadesReceptoras;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $entidades_receptoras;
+
+
 }

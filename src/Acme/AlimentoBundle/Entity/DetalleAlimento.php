@@ -69,6 +69,15 @@ class DetalleAlimento
      */
     protected $alimento_donante;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Acme\PedidoBundle\Entity\AlimentoPedido", mappedBy="detalle_alimento")
+     */
+    protected $pedidos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Acme\PedidoBundle\Entity\AlimentoEntregaDirecta", mappedBy="detalle_alimento")
+     */
+    protected $entregas_directas;
 
     /**
      * Get id
@@ -256,5 +265,71 @@ class DetalleAlimento
     public function getAlimentoDonante()
     {
         return $this->alimento_donante;
+    }
+
+    /**
+     * Add pedidos
+     *
+     * @param \Acme\PedidoBundle\entity\AlimentoPedido $pedidos
+     * @return DetalleAlimento
+     */
+    public function addPedido(\Acme\PedidoBundle\entity\AlimentoPedido $pedidos)
+    {
+        $this->pedidos[] = $pedidos;
+
+        return $this;
+    }
+
+    /**
+     * Remove pedidos
+     *
+     * @param \Acme\PedidoBundle\entity\AlimentoPedido $pedidos
+     */
+    public function removePedido(\Acme\PedidoBundle\entity\AlimentoPedido $pedidos)
+    {
+        $this->pedidos->removeElement($pedidos);
+    }
+
+    /**
+     * Get pedidos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
+    }
+
+    /**
+     * Add entregas_directas
+     *
+     * @param \Acme\PedidoBundle\Entity\AlimentoEntregaDirecta $entregasDirectas
+     * @return DetalleAlimento
+     */
+    public function addEntregasDirecta(\Acme\PedidoBundle\Entity\AlimentoEntregaDirecta $entregasDirectas)
+    {
+        $this->entregas_directas[] = $entregasDirectas;
+
+        return $this;
+    }
+
+    /**
+     * Remove entregas_directas
+     *
+     * @param \Acme\PedidoBundle\Entity\AlimentoEntregaDirecta $entregasDirectas
+     */
+    public function removeEntregasDirecta(\Acme\PedidoBundle\Entity\AlimentoEntregaDirecta $entregasDirectas)
+    {
+        $this->entregas_directas->removeElement($entregasDirectas);
+    }
+
+    /**
+     * Get entregas_directas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEntregasDirectas()
+    {
+        return $this->entregas_directas;
     }
 }

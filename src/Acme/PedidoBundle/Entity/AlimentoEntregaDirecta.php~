@@ -28,6 +28,21 @@ class AlimentoEntregaDirecta
      */
     private $cantidad;
 
+     /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Acme\AlimentoBundle\Entity\DetalleAlimento", inversedBy="alimentosPedido")
+     * @ORM\JoinColumn(name="detalle_alimento_id", referencedColumnName="id")
+     */
+    private $detalle_alimento_id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="EntregaDirecta", inversedBy="entregasDirectaAlimento")
+     * @ORM\JoinColumn(name="entrega_directa_id", referencedColumnName="id")
+     */
+    private $entrega_directa_id;
 
     /**
      * Get id

@@ -28,6 +28,12 @@ class EntregaDirecta
      */
     private $fecha;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Acme\EntidadReceptoraBundle\Entity\EntidadReceptora", inversedBy="entregasDirectas")
+     * @ORM\JoinColumn(name="entidad_receptora_id", referencedColumnName="id")
+     */
+    protected $entidad_receptora_id;
+
 
     /**
      * Get id

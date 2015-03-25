@@ -69,6 +69,15 @@ class DetalleAlimento
      */
     protected $alimento_donante;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Acme\PedidoBundle\Entity\AlimentoPedido", mappedBy="detalle_alimento")
+     */
+    protected $pedidos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Acme\PedidoBundle\Entity\AlimentoEntregaDirecta", mappedBy="detalle_alimento")
+     */
+    protected $entregas_directas;
 
     /**
      * Get id
@@ -193,5 +202,101 @@ class DetalleAlimento
     public function getReservado()
     {
         return $this->reservado;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->alimento_donante = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set alimento_codigo
+     *
+     * @param \Acme\AlimentoBundle\Entity\Alimento $alimentoCodigo
+     * @return DetalleAlimento
+     */
+    public function setAlimentoCodigo(\Acme\AlimentoBundle\Entity\Alimento $alimentoCodigo = null)
+    {
+        $this->alimento_codigo = $alimentoCodigo;
+
+        return $this;
+    }
+
+    /**
+     * Get alimento_codigo
+     *
+     * @return \Acme\AlimentoBundle\Entity\Alimento 
+     */
+    public function getAlimentoCodigo()
+    {
+        return $this->alimento_codigo;
+    }
+
+    /**
+     * Add alimento_donante
+     *
+     * @param \Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante
+     * @return DetalleAlimento
+     */
+    public function addAlimentoDonante(\Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante)
+    {
+        $this->alimento_donante[] = $alimentoDonante;
+
+        return $this;
+    }
+
+    /**
+     * Remove alimento_donante
+     *
+     * @param \Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante
+     */
+    public function removeAlimentoDonante(\Acme\AlimentoBundle\Entity\AlimentoDonante $alimentoDonante)
+    {
+        $this->alimento_donante->removeElement($alimentoDonante);
+    }
+
+    /**
+     * Get alimento_donante
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAlimentoDonante()
+    {
+        return $this->alimento_donante;
+    }
+
+    /**
+     * Add pedidos
+     *
+     * @param \Acme\PedidoBundle\entity\AlimentoPedido $pedidos
+     * @return DetalleAlimento
+     */
+    public function addPedido(\Acme\PedidoBundle\entity\AlimentoPedido $pedidos)
+    {
+        $this->pedidos[] = $pedidos;
+
+        return $this;
+    }
+
+    /**
+     * Remove pedidos
+     *
+     * @param \Acme\PedidoBundle\entity\AlimentoPedido $pedidos
+     */
+    public function removePedido(\Acme\PedidoBundle\entity\AlimentoPedido $pedidos)
+    {
+        $this->pedidos->removeElement($pedidos);
+    }
+
+    /**
+     * Get pedidos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
     }
 }

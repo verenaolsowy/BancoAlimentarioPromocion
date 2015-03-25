@@ -12,4 +12,8 @@ Acme\EntidadReceptoraBundle\Entity\EstadoEntidad:
         descripcion:
             type: string
             length: '20'
+    oneToMany:
+        entidades_receptoras:
+            targetEntity: EntidadReceptora
+            mappedBy: estado_entidad_id
     lifecycleCallbacks: {  }

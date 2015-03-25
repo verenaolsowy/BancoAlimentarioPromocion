@@ -28,6 +28,21 @@ class AlimentoEntregaDirecta
      */
     private $cantidad;
 
+     /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Acme\AlimentoBundle\Entity\DetalleAlimento", inversedBy="alimentosPedido")
+     * @ORM\JoinColumn(name="detalle_alimento_id", referencedColumnName="id")
+     */
+    private $detalle_alimento_id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="EntregaDirecta", inversedBy="entregasDirectaAlimento")
+     * @ORM\JoinColumn(name="entrega_directa_id", referencedColumnName="id")
+     */
+    private $entrega_directa_id;
 
     /**
      * Get id
@@ -60,5 +75,51 @@ class AlimentoEntregaDirecta
     public function getCantidad()
     {
         return $this->cantidad;
+    }
+
+    /**
+     * Set detalle_alimento_id
+     *
+     * @param \Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimentoId
+     * @return AlimentoEntregaDirecta
+     */
+    public function setDetalleAlimentoId(\Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimentoId = null)
+    {
+        $this->detalle_alimento_id = $detalleAlimentoId;
+
+        return $this;
+    }
+
+    /**
+     * Get detalle_alimento_id
+     *
+     * @return \Acme\AlimentoBundle\Entity\DetalleAlimento 
+     */
+    public function getDetalleAlimentoId()
+    {
+        return $this->detalle_alimento_id;
+    }
+
+    /**
+     * Set entrega_directa_id
+     *
+     * @param \Acme\PedidoBundle\Entity\EntregaDirecta $entregaDirectaId
+     * @return AlimentoEntregaDirecta
+     */
+    public function setEntregaDirectaId(\Acme\PedidoBundle\Entity\EntregaDirecta $entregaDirectaId = null)
+    {
+        $this->entrega_directa_id = $entregaDirectaId;
+
+        return $this;
+    }
+
+    /**
+     * Get entrega_directa_id
+     *
+     * @return \Acme\PedidoBundle\Entity\EntregaDirecta 
+     */
+    public function getEntregaDirectaId()
+    {
+        return $this->entrega_directa_id;
     }
 }

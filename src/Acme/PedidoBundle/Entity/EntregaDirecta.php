@@ -28,6 +28,12 @@ class EntregaDirecta
      */
     private $fecha;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Acme\EntidadReceptoraBundle\Entity\EntidadReceptora", inversedBy="entregasDirectas")
+     * @ORM\JoinColumn(name="entidad_receptora_id", referencedColumnName="id")
+     */
+    protected $entidad_receptora_id;
+
 
     /**
      * Get id
@@ -60,5 +66,28 @@ class EntregaDirecta
     public function getFecha()
     {
         return $this->fecha;
+    }
+
+    /**
+     * Set entidad_receptora_id
+     *
+     * @param \Acme\EntidadReceptoraBundle\Entity\EntidadReceptora $entidadReceptoraId
+     * @return EntregaDirecta
+     */
+    public function setEntidadReceptoraId(\Acme\EntidadReceptoraBundle\Entity\EntidadReceptora $entidadReceptoraId = null)
+    {
+        $this->entidad_receptora_id = $entidadReceptoraId;
+
+        return $this;
+    }
+
+    /**
+     * Get entidad_receptora_id
+     *
+     * @return \Acme\EntidadReceptoraBundle\Entity\EntidadReceptora 
+     */
+    public function getEntidadReceptoraId()
+    {
+        return $this->entidad_receptora_id;
     }
 }

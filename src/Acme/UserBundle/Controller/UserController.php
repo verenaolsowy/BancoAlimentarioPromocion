@@ -64,6 +64,7 @@ class UserController extends Controller
      */
     private function createCreateForm(User $entity)
     {
+        $user = $this->getUser();
         $form = $this->createForm(new UserType(), $entity, array(
             'action' => $this->generateUrl('user_create'),
             'method' => 'POST',

@@ -9,6 +9,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class UserType extends AbstractType
 {
 
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        if ($options['required']) {
+            $builder
+                ->add('username', null, array('label'=>'Nombre de usuario'))
+                ->add('plainPassword', null, array('label'=>'Contraseña'));
+        }
+        $builder->add('email');
+    }
+
     /**
      * @param OptionsResolverInterface $resolver
      */

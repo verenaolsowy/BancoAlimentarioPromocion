@@ -12,4 +12,20 @@
         </a>
     </li>
 </ul>
+
+{{ form_start(form, { 'style': 'horizontal', 'label_col': 3, 'widget_col': 7 }) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.username) }}
+        {{ form_row(form.plainPassword) }}
+        {{ form_row(form.email) }}
+
+        <div class="col-lg-offset-3 col-lg-7">
+            <p>
+                {{ form_widget(form.submit) }}
+                <a href="{{ path('user') }}" class="btn btn-default">Cancelar</a>
+            </p>
+        </div>
+
+    {{ form_end(form) }}
 {% endblock %}

@@ -17,7 +17,7 @@ class UserController extends Controller
 
     /**
      * Lists all User entities.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function indexAction()
     {
@@ -33,7 +33,7 @@ class UserController extends Controller
     }
     /**
      * Creates a new User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -57,7 +57,7 @@ class UserController extends Controller
 
     /**
      * Creates a form to create a User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param User $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
@@ -77,7 +77,7 @@ class UserController extends Controller
 
     /**
      * Displays a form to create a new User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newAction()
     {
@@ -94,7 +94,7 @@ class UserController extends Controller
 
     /**
      * Finds and displays a User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function showAction($id)
     {
@@ -119,7 +119,7 @@ class UserController extends Controller
 
     /**
      * Displays a form to edit an existing User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction($id)
     {
@@ -146,7 +146,7 @@ class UserController extends Controller
 
     /**
     * Creates a form to edit a User entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param User $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -164,7 +164,7 @@ class UserController extends Controller
     }
     /**
      * Edits an existing User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function updateAction(Request $request, $id)
     {
@@ -194,7 +194,7 @@ class UserController extends Controller
     }
     /**
      * Deletes a User entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -218,7 +218,7 @@ class UserController extends Controller
 
     /**
      * Creates a form to delete a User entity by id.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form

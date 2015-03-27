@@ -20,7 +20,7 @@ class NecesidadEntidadController extends Controller
 
     /**
      * Lists all NecesidadEntidad entities.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/", name="necesidadentidad")
      * @Method("GET")
      * @Template()
@@ -37,7 +37,7 @@ class NecesidadEntidadController extends Controller
     }
     /**
      * Creates a new NecesidadEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/", name="necesidadentidad_create")
      * @Method("POST")
      * @Template("AcmeEntidadReceptoraBundle:NecesidadEntidad:new.html.twig")
@@ -64,7 +64,7 @@ class NecesidadEntidadController extends Controller
 
     /**
      * Creates a form to create a NecesidadEntidad entity.
-     *
+    * @Security("has_role('ROLE_ADMIN')")
      * @param NecesidadEntidad $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
@@ -83,7 +83,7 @@ class NecesidadEntidadController extends Controller
 
     /**
      * Displays a form to create a new NecesidadEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/new", name="necesidadentidad_new")
      * @Method("GET")
      * @Template()
@@ -101,7 +101,7 @@ class NecesidadEntidadController extends Controller
 
     /**
      * Finds and displays a NecesidadEntidad entity.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/{id}", name="necesidadentidad_show")
      * @Method("GET")
      * @Template()
@@ -126,7 +126,7 @@ class NecesidadEntidadController extends Controller
 
     /**
      * Displays a form to edit an existing NecesidadEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", name="necesidadentidad_edit")
      * @Method("GET")
      * @Template()
@@ -153,7 +153,7 @@ class NecesidadEntidadController extends Controller
 
     /**
     * Creates a form to edit a NecesidadEntidad entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param NecesidadEntidad $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -171,7 +171,7 @@ class NecesidadEntidadController extends Controller
     }
     /**
      * Edits an existing NecesidadEntidad entity.
-     *
+    * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="necesidadentidad_update")
      * @Method("PUT")
      * @Template("AcmeEntidadReceptoraBundle:NecesidadEntidad:edit.html.twig")
@@ -204,7 +204,7 @@ class NecesidadEntidadController extends Controller
     }
     /**
      * Deletes a NecesidadEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="necesidadentidad_delete")
      * @Method("DELETE")
      */
@@ -230,7 +230,7 @@ class NecesidadEntidadController extends Controller
 
     /**
      * Creates a form to delete a NecesidadEntidad entity by id.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form

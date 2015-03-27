@@ -153,7 +153,7 @@ class EntidadReceptoraController extends Controller
 
     /**
     * Creates a form to edit a EntidadReceptora entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param EntidadReceptora $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -171,7 +171,7 @@ class EntidadReceptoraController extends Controller
     }
     /**
      * Edits an existing EntidadReceptora entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="entidadreceptora_update")
      * @Method("PUT")
      * @Template("AcmeEntidadReceptoraBundle:EntidadReceptora:edit.html.twig")
@@ -204,7 +204,7 @@ class EntidadReceptoraController extends Controller
     }
     /**
      * Deletes a EntidadReceptora entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="entidadreceptora_delete")
      * @Method("DELETE")
      */
@@ -230,7 +230,7 @@ class EntidadReceptoraController extends Controller
 
     /**
      * Creates a form to delete a EntidadReceptora entity by id.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form

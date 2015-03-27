@@ -20,7 +20,7 @@ class DonanteController extends Controller
 
     /**
      * Lists all Donante entities.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/", name="donante")
      * @Method("GET")
      * @Template()
@@ -37,7 +37,7 @@ class DonanteController extends Controller
     }
     /**
      * Creates a new Donante entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/", name="donante_create")
      * @Method("POST")
      * @Template("AcmeDonanteBundle:Donante:new.html.twig")
@@ -64,7 +64,7 @@ class DonanteController extends Controller
 
     /**
      * Creates a form to create a Donante entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param Donante $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
@@ -83,7 +83,7 @@ class DonanteController extends Controller
 
     /**
      * Displays a form to create a new Donante entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/new", name="donante_new")
      * @Method("GET")
      * @Template()
@@ -101,7 +101,7 @@ class DonanteController extends Controller
 
     /**
      * Finds and displays a Donante entity.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/{id}", name="donante_show")
      * @Method("GET")
      * @Template()
@@ -126,7 +126,7 @@ class DonanteController extends Controller
 
     /**
      * Displays a form to edit an existing Donante entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", name="donante_edit")
      * @Method("GET")
      * @Template()
@@ -153,7 +153,7 @@ class DonanteController extends Controller
 
     /**
     * Creates a form to edit a Donante entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param Donante $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -171,7 +171,7 @@ class DonanteController extends Controller
     }
     /**
      * Edits an existing Donante entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="donante_update")
      * @Method("PUT")
      * @Template("AcmeDonanteBundle:Donante:edit.html.twig")
@@ -204,7 +204,7 @@ class DonanteController extends Controller
     }
     /**
      * Deletes a Donante entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="donante_delete")
      * @Method("DELETE")
      */
@@ -230,7 +230,7 @@ class DonanteController extends Controller
 
     /**
      * Creates a form to delete a Donante entity by id.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form

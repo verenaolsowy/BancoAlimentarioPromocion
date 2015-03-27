@@ -20,7 +20,7 @@ class AlimentoController extends Controller
 
     /**
      * Lists all Alimento entities.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/", name="alimento")
      * @Method("GET")
      * @Template()
@@ -37,7 +37,7 @@ class AlimentoController extends Controller
     }
     /**
      * Creates a new Alimento entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/", name="alimento_create")
      * @Method("POST")
      * @Template("AcmeAlimentoBundle:Alimento:new.html.twig")
@@ -64,7 +64,7 @@ class AlimentoController extends Controller
 
     /**
      * Creates a form to create a Alimento entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param Alimento $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
@@ -83,7 +83,7 @@ class AlimentoController extends Controller
 
     /**
      * Displays a form to create a new Alimento entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/new", name="alimento_new")
      * @Method("GET")
      * @Template()
@@ -101,7 +101,7 @@ class AlimentoController extends Controller
 
     /**
      * Finds and displays a Alimento entity.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/{id}", name="alimento_show")
      * @Method("GET")
      * @Template()
@@ -126,7 +126,7 @@ class AlimentoController extends Controller
 
     /**
      * Displays a form to edit an existing Alimento entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", name="alimento_edit")
      * @Method("GET")
      * @Template()
@@ -153,7 +153,7 @@ class AlimentoController extends Controller
 
     /**
     * Creates a form to edit a Alimento entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param Alimento $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -171,7 +171,7 @@ class AlimentoController extends Controller
     }
     /**
      * Edits an existing Alimento entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="alimento_update")
      * @Method("PUT")
      * @Template("AcmeAlimentoBundle:Alimento:edit.html.twig")

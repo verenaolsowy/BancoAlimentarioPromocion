@@ -20,7 +20,7 @@ class EstadoEntidadController extends Controller
 
     /**
      * Lists all EstadoEntidad entities.
-     *
+     * @Security("has_role('ROLE_GESTION')")
      * @Route("/", name="estadoentidad")
      * @Method("GET")
      * @Template()
@@ -37,7 +37,7 @@ class EstadoEntidadController extends Controller
     }
     /**
      * Creates a new EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/", name="estadoentidad_create")
      * @Method("POST")
      * @Template("AcmeEntidadReceptoraBundle:EstadoEntidad:new.html.twig")
@@ -64,7 +64,7 @@ class EstadoEntidadController extends Controller
 
     /**
      * Creates a form to create a EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param EstadoEntidad $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
@@ -83,7 +83,7 @@ class EstadoEntidadController extends Controller
 
     /**
      * Displays a form to create a new EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/new", name="estadoentidad_new")
      * @Method("GET")
      * @Template()
@@ -101,7 +101,7 @@ class EstadoEntidadController extends Controller
 
     /**
      * Finds and displays a EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_GESTION')")
      * @Route("/{id}", name="estadoentidad_show")
      * @Method("GET")
      * @Template()
@@ -126,7 +126,7 @@ class EstadoEntidadController extends Controller
 
     /**
      * Displays a form to edit an existing EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", name="estadoentidad_edit")
      * @Method("GET")
      * @Template()
@@ -153,7 +153,7 @@ class EstadoEntidadController extends Controller
 
     /**
     * Creates a form to edit a EstadoEntidad entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param EstadoEntidad $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -171,7 +171,7 @@ class EstadoEntidadController extends Controller
     }
     /**
      * Edits an existing EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="estadoentidad_update")
      * @Method("PUT")
      * @Template("AcmeEntidadReceptoraBundle:EstadoEntidad:edit.html.twig")
@@ -204,7 +204,7 @@ class EstadoEntidadController extends Controller
     }
     /**
      * Deletes a EstadoEntidad entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="estadoentidad_delete")
      * @Method("DELETE")
      */
@@ -230,7 +230,7 @@ class EstadoEntidadController extends Controller
 
     /**
      * Creates a form to delete a EstadoEntidad entity by id.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form

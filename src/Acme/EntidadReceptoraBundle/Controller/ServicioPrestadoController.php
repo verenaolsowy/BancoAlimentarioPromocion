@@ -20,7 +20,7 @@ class ServicioPrestadoController extends Controller
 
     /**
      * Lists all ServicioPrestado entities.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/", name="servicioprestado")
      * @Method("GET")
      * @Template()
@@ -37,7 +37,7 @@ class ServicioPrestadoController extends Controller
     }
     /**
      * Creates a new ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/", name="servicioprestado_create")
      * @Method("POST")
      * @Template("AcmeEntidadReceptoraBundle:ServicioPrestado:new.html.twig")
@@ -64,7 +64,7 @@ class ServicioPrestadoController extends Controller
 
     /**
      * Creates a form to create a ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param ServicioPrestado $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
@@ -83,7 +83,7 @@ class ServicioPrestadoController extends Controller
 
     /**
      * Displays a form to create a new ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/new", name="servicioprestado_new")
      * @Method("GET")
      * @Template()
@@ -101,7 +101,7 @@ class ServicioPrestadoController extends Controller
 
     /**
      * Finds and displays a ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_CONSULTA')")
      * @Route("/{id}", name="servicioprestado_show")
      * @Method("GET")
      * @Template()
@@ -126,7 +126,7 @@ class ServicioPrestadoController extends Controller
 
     /**
      * Displays a form to edit an existing ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}/edit", name="servicioprestado_edit")
      * @Method("GET")
      * @Template()
@@ -153,7 +153,7 @@ class ServicioPrestadoController extends Controller
 
     /**
     * Creates a form to edit a ServicioPrestado entity.
-    *
+    * @Security("has_role('ROLE_ADMIN')")
     * @param ServicioPrestado $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
@@ -171,7 +171,7 @@ class ServicioPrestadoController extends Controller
     }
     /**
      * Edits an existing ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="servicioprestado_update")
      * @Method("PUT")
      * @Template("AcmeEntidadReceptoraBundle:ServicioPrestado:edit.html.twig")
@@ -204,7 +204,7 @@ class ServicioPrestadoController extends Controller
     }
     /**
      * Deletes a ServicioPrestado entity.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @Route("/{id}", name="servicioprestado_delete")
      * @Method("DELETE")
      */
@@ -230,7 +230,7 @@ class ServicioPrestadoController extends Controller
 
     /**
      * Creates a form to delete a ServicioPrestado entity by id.
-     *
+     * @Security("has_role('ROLE_ADMIN')")
      * @param mixed $id The entity id
      *
      * @return \Symfony\Component\Form\Form The form

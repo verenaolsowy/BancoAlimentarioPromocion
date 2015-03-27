@@ -1,0 +1,115 @@
+	<title>{% block title %}Banco Alimentario | Trabajo de promoción 2015 | Couso, Cuitiño, Olsowy {% endblock %}</title>
+    <script src="{{ asset('js/jquery.min.js') }}"></script><!--jquery-->
+    <script src="{{ asset('js/jquery-ui.js') }}"></script><!--jquery UI (en este caso es la API que nos permite abrir EL DIALOGO PARA DESCARGAR EL ARCHIVO-->
+
+    <script src="{{ asset('js/highcharts.js') }}"></script><!--highcharts-->
+    <script src="{{ asset('js/exporting.js') }}"></script><!--plugin de exportación de highcharts-->
+
+    <script src="{{ asset('js/canvg.js') }}"></script><!--para exportar un SVG a imagen raster-->
+    <script src="{{ asset('js/rgbcolor.js') }}"></script><!--idem anterior-->
+
+    <script src="{{ asset('js/jsPDF-master/dist/jspdf.min.js') }}"></script><!--jsPDF y sus plugins-->
+    <script src="{{ asset('js/jsPDF-master/jspdf.plugin.addimage.js') }}"></script>
+    <script src="{{ asset('js/jsPDF-master/jspdf.plugin.standard_fonts_metrics.js') }}"></script>
+    <script src="{{ asset('js/jsPDF-master/jspdf.plugin.split_text_to_size.js') }}"></script>
+    <script src="{{ asset('js/jsPDF-master/jspdf.plugin.from_html.js') }}"></script>
+	<!-- <script src="http://www.highcharts.com/js/themes/dark-unica.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('estiloPrincipal.css') }}">
+	<link rel="stylesheet" href="{{ asset('jquery-ui.css') }}" > <!-- estilo para el datepicker -->
+	
+			<header>
+			<img id="logo" src="{{ asset('logo_web.jpg') }}" alt="Banco Alimentario La Plata">  
+		  
+		  
+			<div id="Usuario">
+				{%if user is defined and user%}
+					<a class="botonLogOut" href="../logout">Logout</a>	
+						<h4 id="id-usuario"> Bienvenido  {{user.username}} </h4>
+				{%else%}
+					<a class="botonLogOut" href="../login">Login</a>	
+				{%endif%}
+			</div>
+			
+			
+		</header>
+		
+
+
+    <div class="estadisticas">
+ 
+	
+	<script src="Recursos/Scripts/jsPDF-master/dist/jspdf.min.js"></script>
+<script type="text/javascript">
+        function demoFromHTML() {
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            source = $('#tabla')[0];
+            specialElementHandlers = {
+                
+                '#bypassme': function(element, renderer) {
+                    
+                    return true
+                }
+            };
+            margins = {
+                top: 80,
+                bottom: 60,
+                left: 40,
+                width: 522
+            };
+            
+            pdf.fromHTML(
+                    source, 
+                    margins.left, 
+                    margins.top, {
+                        'width': margins.width,
+                        'elementHandlers': specialElementHandlers
+                    },
+            function(dispose) {
+
+                pdf.save('AlimentosVencidos.pdf');
+            }
+            , margins);
+        }
+    </script>
+
+
+{% if pedidos is empty %}
+<br>
+		<div id="alerta">
+			<img src="{{ asset('check.png') }} " width="20"> No hay pedidos que contengan alimentos vencidos.
+		</div>	
+	{% else %}
+	<div id="tabla">
+		<table class="tablaEstiloGlass">
+			<br>
+		Pedidos con alimentos vencidos que no fueron entregados 
+		<thead> 
+		<tr>
+			<th scope="col">Nro. de pedido</th>
+			<th scope="col">Vencimiento</th>
+			<th scope="col">Estado</th>
+			<th scope="col">Entidad receptora</th>
+			<th scope="col">Fecha de entrega</th>
+		</tr>
+		</thead> 
+		<tbody>
+		{% for dato in pedidos %}
+		<tr>
+		<td>{{ dato.numero }}</td>
+		<td>{{ dato.fecha_vencimiento }}</td>
+		<td>{{ dato.descripcion }}</td>
+		<td>{{ dato.razon_social}}</td>
+		<td>{{ dato.fecha }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<br>
+		<button onclick="javascript:demoFromHTML()">Exportar en PDF</button>
+{% endif %}
+    
+    </div>
+  
+
+</html>

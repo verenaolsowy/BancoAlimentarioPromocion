@@ -246,7 +246,7 @@ class PedidoModeloController extends Controller
         ;
     }
 	
-		public function graficoBarraAction(Request $request){
+	public function graficoBarraAction(Request $request){
 		
 		$choices = array();
 		
@@ -309,5 +309,25 @@ class PedidoModeloController extends Controller
         
 		));
 		
+}
+
+	public function alimentosVencidosAction(){
+		
+
+		$table = $this->getDoctrine()->getManager()->getConnection()->prepare('SELECT * FROM pedidomodelo
+										INNER JOIN estadopedido on estadopedido.id=pedidomodelo.estado_pedido_id
+										INNER JOIN turnoentrega ON pedidomodelo.turno_entrega_id=turnoentrega.id
+										INNER JOIN entidadreceptora ON pedidomodelo.entidad_receptora_id=entidadreceptora.id
+										INNER JOIN alimentopedido ON alimentopedido.pedido_modelo_numero=pedidomodelo.numero
+										INNER JOIN detallealimento ON detallealimento.id=alimentopedido.detalle_alimento_id
+										 WHERE fecha_vencimiento<CURDATE() AND estadopedido.id=2');
+
+		
+		$table->execute();
+		$resultado= $table->fetchAll();
+		
+		return $this->render('AcmePedidoBundle:AlimentoPedido:alimentosVencidos.html.twig', array(
+            'pedidos' => $resultado,
+        ));
 }
 }

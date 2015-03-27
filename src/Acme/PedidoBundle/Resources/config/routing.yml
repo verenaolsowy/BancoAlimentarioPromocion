@@ -129,3 +129,7 @@ impresion_grafico_barra:
 impresion_grafico_circular:
     path:     /graficoCircular
     defaults: { _controller: "AcmePedidoBundle:PedidoModelo:graficoCircular" }
+
+impresion_vencidos:
+    path:     /alimentosVencidos
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:alimentosVencidos" }

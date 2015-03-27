@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Acme\PedidoBundle\Entity\PedidoModelo;
 use Acme\PedidoBundle\Form\PedidoModeloType;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
 
 /**
  * PedidoModelo controller.
@@ -244,4 +245,36 @@ class PedidoModeloController extends Controller
             ->getForm()
         ;
     }
+	
+		public function graficoBarraAction(Request $request){
+		
+		$choices = array();
+		
+		$fecha1= $request->request->get('fecha1');
+		$fecha2= $request->request->get('fecha2');
+		if ($fecha1==null){ $fecha1='01-01-1990';}
+		if ($fecha2==null){ $fecha2='01-01-2100';}
+		
+		$rsm = new ResultSetMappingBuilder($this->getDoctrine()->getManager());
+		$table = $this->getDoctrine()->getManager()->createNativeQuery('SELECT SUM(peso_unitario*cantidad) AS cant, fecha FROM pedidomodelo 
+				INNER JOIN turnoentrega ON pedidomodelo.turno_entrega_id=turnoentrega.id 
+				INNER JOIN alimentopedido ON alimentopedido.id=pedidomodelo.numero 
+				INNER JOIN detallealimento ON detallealimento.id=alimentopedido.detalle_alimento_id  
+				WHERE turnoentrega.fecha BETWEEN ? AND ? 
+				GROUP BY fecha', $rsm);
+		
+		$table->setParameter(1, $fecha1);
+		$table->setParameter(2, $fecha2);
+		
+		$table = $table->getResult();
+
+		foreach($table as $t) {
+			$choices[$t->getId()] = $t;
+		}
+		
+		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoBarra.html.twig', array(
+            'pedidos' => $choices,
+        ));
+		
+}
 }

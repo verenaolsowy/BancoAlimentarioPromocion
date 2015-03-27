@@ -121,3 +121,11 @@ entrega_directa_delete:
     path:     /{id}/delete
     defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:delete" }
     requirements: { _method: post|delete }
+
+impresion_grafico_barra:
+    path:     /graficoBarra
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:graficoBarra" }
+
+impresion_grafico_circular:
+    path:     /graficoCircular
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:graficoCircular" }

@@ -269,23 +269,45 @@ class PedidoModeloController extends Controller
 		$table->execute();
 		$resultado= $table->fetchAll();
 		
-		//while ($row = $table->fetch()) {
-		//		echo $row['fecha'];
-		//	}
-
-		//$table = $table->fetch();
-
-		//foreach($table as $t) {
-		//	$choices[$t->getId()] = $t;
-		//}
-		
-		//echo('test | ');
-		//if ($resultado==null){echo('resutaldo es null');}    else     {echo($resultado['fecha']);}
-		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoBarra.html.twig', array(
             'pedidos' => $resultado,
 			'action' => $this->generateUrl('impresion_grafico_barra'),
         ));
+		
+}
+
+	public function graficoCircularAction(Request $request){
+		
+		$choices = array();
+		
+		$fecha1= $request->request->get('fecha1');
+		$fecha2= $request->request->get('fecha2');
+		if ($fecha1==null){ $fecha1='1990-01-01';}
+		if ($fecha2==null){ $fecha2='2100-01-01';}
+		
+
+		$table = $this->getDoctrine()->getManager()->getConnection()->prepare('SELECT SUM(peso_unitario*cantidad) AS cant, razon_social 
+				FROM pedidomodelo 
+				INNER JOIN turnoentrega ON pedidomodelo.turno_entrega_id=turnoentrega.id 
+				INNER JOIN alimentopedido ON alimentopedido.pedido_modelo_numero=pedidomodelo.numero 
+				INNER JOIN detallealimento ON detallealimento.id=alimentopedido.detalle_alimento_id 
+				INNER JOIN entidadreceptora ON entidadreceptora.id=pedidomodelo.entidad_receptora_id 
+				WHERE turnoentrega.fecha 
+				BETWEEN ? AND ? 
+				GROUP BY entidadreceptora.razon_social ');
+		
+		$table->bindValue(1, $fecha1);
+		$table->bindValue(2, $fecha2);
+		
+		$table->execute();
+		$resultado= $table->fetchAll();
+		
+		$this->render('AcmePedidoBundle:AlimentoPedido:layout.html.twig');
+		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoCircular.html.twig', array(
+            'pedidos' => $resultado,
+			'action' => $this->generateUrl('impresion_grafico_circular'),
+        
+		));
 		
 }
 }

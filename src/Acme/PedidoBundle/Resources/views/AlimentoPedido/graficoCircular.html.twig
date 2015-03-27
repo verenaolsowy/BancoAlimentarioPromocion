@@ -1,4 +1,4 @@
-
+	{# use "AcmePedidoBundle:AlimentoPedido:layout.html.twig" #}
     <script src="{{ asset('js/jquery.min.js') }}"></script><!--jquery-->
     <script src="{{ asset('js/jquery-ui.js') }}"></script><!--jquery UI (en este caso es la API que nos permite abrir EL DIALOGO PARA DESCARGAR EL ARCHIVO-->
 
@@ -119,7 +119,7 @@
   <body>
     
       <br>
- 	<form action="index.php?controller=PedidosController&action=graficoCircularConFechas" method="post"  style="width: 70%; margin-left:15%;">
+ 	<form action="{{action}}" method="post"  style="width: 70%; margin-left:15%;">
 				
 		Fecha de inicio: <input type="text" id="datepicker1" name="fecha1" required >	
 		Fecha de fin: <input type="text" id="datepicker2" name="fecha2" required >

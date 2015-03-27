@@ -270,6 +270,7 @@ class PedidoModeloController extends Controller
 		$resultado= $table->fetchAll();
 		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoBarra.html.twig', array(
+			'user' => $this->getUser(),
             'pedidos' => $resultado,
 			'action' => $this->generateUrl('impresion_grafico_barra'),
         ));
@@ -304,6 +305,7 @@ class PedidoModeloController extends Controller
 		
 		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoCircular.html.twig', array(
+			'user' => $this->getUser(),
             'pedidos' => $resultado,
 			'action' => $this->generateUrl('impresion_grafico_circular'),
         
@@ -327,6 +329,7 @@ class PedidoModeloController extends Controller
 		$resultado= $table->fetchAll();
 		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:alimentosVencidos.html.twig', array(
+			'user' => $this->getUser(),
             'pedidos' => $resultado,
         ));
 }

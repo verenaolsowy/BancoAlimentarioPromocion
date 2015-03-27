@@ -91,7 +91,6 @@
     			},
     			
               series: [{data: [{% for pedido in pedidos %}{{pedido.cant}},{% endfor %}], name:"Entregas",}]
-			  series: [{data: [23,56], name:"Entregas",}]
     		  
             });
 
@@ -131,8 +130,7 @@
 				</tr>
 			{% endfor %}
 			
-		</table>
-		
+		</table>		
       <!-- <div id="graficoHighCharts2" class="graficoHighCharts" style="height: 200px"></div> -->
      
     </div>
@@ -140,6 +138,6 @@
     <button id="exportar_pdf">Exportar a pdf</button>
     
     </div>
-  </body>
+  
 
 </html>

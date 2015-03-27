@@ -255,29 +255,35 @@ class PedidoModeloController extends Controller
 		if ($fecha1==null){ $fecha1='1990-01-01';}
 		if ($fecha2==null){ $fecha2='2100-01-01';}
 		
-		$rsm = new ResultSetMappingBuilder($this->getDoctrine()->getManager());
-		$table = $this->getDoctrine()->getManager()->createNativeQuery('SELECT SUM(peso_unitario*cantidad) AS cant, fecha FROM pedidomodelo 
+
+		$table = $this->getDoctrine()->getManager()->getConnection()->prepare('SELECT SUM(peso_unitario*cantidad) AS cant, fecha FROM pedidomodelo 
 				INNER JOIN turnoentrega ON pedidomodelo.turno_entrega_id=turnoentrega.id 
 				INNER JOIN alimentopedido ON alimentopedido.id=pedidomodelo.numero 
 				INNER JOIN detallealimento ON detallealimento.id=alimentopedido.detalle_alimento_id  
-				WHERE turnoentrega.fecha BETWEEN ? AND ? 
-				GROUP BY fecha', $rsm);
+				WHERE turnoentrega.fecha BETWEEN ? AND ?
+				GROUP BY fecha');
 		
-		$table->setParameter(1, $fecha1);
-		$table->setParameter(2, $fecha2);
+		$table->bindValue(1, $fecha1);
+		$table->bindValue(2, $fecha2);
 		
-		$table = $table->getResult();
+		$table->execute();
+		$resultado= $table->fetchAll();
+		
+		//while ($row = $table->fetch()) {
+		//		echo $row['fecha'];
+		//	}
+
+		//$table = $table->fetch();
 
 		//foreach($table as $t) {
 		//	$choices[$t->getId()] = $t;
 		//}
 		
-		echo('test | ');
-		if ($table==null){echo('table es null');}else{echo($table['cant']);}
-		
+		//echo('test | ');
+		//if ($resultado==null){echo('resutaldo es null');}    else     {echo($resultado['fecha']);}
 		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoBarra.html.twig', array(
-            'pedidos' => $choices,
+            'pedidos' => $resultado,
 			'action' => $this->generateUrl('impresion_grafico_barra'),
         ));
 		

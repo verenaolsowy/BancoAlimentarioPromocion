@@ -1,3 +1,61 @@
-acme_alimento_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AcmeAlimentoBundle:Default:index }
+alimento:
+    path:     /
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:index" }
+
+alimento_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:show" }
+
+alimento_new:
+    path:     /new
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:new" }
+
+alimento_create:
+    path:     /create
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:create" }
+    requirements: { _method: post }
+
+alimento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:edit" }
+
+alimento_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:update" }
+    requirements: { _method: post|put }
+
+alimento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeAlimentoBundle:Alimento:delete" }
+    requirements: { _method: post|delete }
+
+detallealimento:
+    path:     /detallealimento
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:index" }
+
+detallealimento_show:
+    path:     /detallealimento/{id}/show
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:show" }
+
+detallealimento_new:
+    path:     /detallealimento/new
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:new" }
+
+detallealimento_create:
+    path:     /detallealimento/create
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:create" }
+    requirements: { _method: post }
+
+detallealimento_edit:
+    path:     /detallealimento/{id}/edit
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:edit" }
+
+detallealimento_update:
+    path:     /detallealimento/{id}/update
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:update" }
+    requirements: { _method: post|put }
+
+detallealimento_delete:
+    path:     /detallealimento/{id}/delete
+    defaults: { _controller: "AcmeAlimentoBundle:DetalleAlimento:delete" }
+    requirements: { _method: post|delete }

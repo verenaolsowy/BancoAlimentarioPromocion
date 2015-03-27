@@ -1,3 +1,30 @@
-acme_donante_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AcmeDonanteBundle:Default:index }
+donante:
+    path:     /
+    defaults: { _controller: "AcmeDonanteBundle:Donante:index" }
+
+donante_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeDonanteBundle:Donante:show" }
+
+donante_new:
+    path:     /new
+    defaults: { _controller: "AcmeDonanteBundle:Donante:new" }
+
+donante_create:
+    path:     /create
+    defaults: { _controller: "AcmeDonanteBundle:Donante:create" }
+    requirements: { _method: post }
+
+donante_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeDonanteBundle:Donante:edit" }
+
+donante_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeDonanteBundle:Donante:update" }
+    requirements: { _method: post|put }
+
+donantes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeDonanteBundle:Donante:delete" }
+    requirements: { _method: post|delete }

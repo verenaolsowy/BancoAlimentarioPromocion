@@ -1,3 +1,123 @@
-acme_entidad_receptora_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AcmeEntidadReceptoraBundle:Default:index }
+entidadreceptora:
+    path:     /
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:index" }
+
+entidadreceptora_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:show" }
+
+entidadreceptora_new:
+    path:     /new
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:new" }
+
+entidadreceptora_create:
+    path:     /create
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:create" }
+    requirements: { _method: post }
+
+entidadreceptora_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:edit" }
+
+entidadreceptora_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:update" }
+    requirements: { _method: post|put }
+
+entidadreceptora_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EntidadReceptora:delete" }
+    requirements: { _method: post|delete }
+
+estadoentidad:
+    path:     /estadoentidad
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:index" }
+
+estadoentidad_show:
+    path:     /estadoentidad/{id}/show
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:show" }
+
+estadoentidad_new:
+    path:     /estadoentidad/new
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:new" }
+
+estadoentidad_create:
+    path:     /estadoentidad/create
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:create" }
+    requirements: { _method: post }
+
+estadoentidad_edit:
+    path:     /estadoentidad/{id}/edit
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:edit" }
+
+estadoentidad_update:
+    path:     /estadoentidad/{id}/update
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:update" }
+    requirements: { _method: post|put }
+
+estadoentidad_delete:
+    path:     /estadoentidad/{id}/delete
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:EstadoEntidad:delete" }
+    requirements: { _method: post|delete }
+
+necesidadentidad:
+    path:     /necesidadentidad
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:index" }
+
+necesidadentidad_show:
+    path:     /necesidadentidad/{id}/show
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:show" }
+
+necesidadentidad_new:
+    path:     /necesidadentidad/new
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:new" }
+
+necesidadentidad_create:
+    path:     /necesidadentidad/create
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:create" }
+    requirements: { _method: post }
+
+necesidadentidad_edit:
+    path:     /necesidadentidad/{id}/edit
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:edit" }
+
+necesidadentidad_update:
+    path:     /necesidadentidad/{id}/update
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:update" }
+    requirements: { _method: post|put }
+
+necesidadentidad_delete:
+    path:     /necesidadentidad/{id}/delete
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:NecesidadEntidad:delete" }
+    requirements: { _method: post|delete }
+
+servicioprestado:
+    path:     /servicioprestado
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:index" }
+
+servicioprestado_show:
+    path:     /servicioprestado/{id}/show
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:show" }
+
+servicioprestado_new:
+    path:     /servicioprestado/new
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:new" }
+
+servicioprestado_create:
+    path:     /servicioprestado/create
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:create" }
+    requirements: { _method: post }
+
+servicioprestado_edit:
+    path:     /servicioprestado/{id}/edit
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:edit" }
+
+servicioprestado_update:
+    path:     /servicioprestado/{id}/update
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:update" }
+    requirements: { _method: post|put }
+
+servicioprestado_delete:
+    path:     /servicioprestado/{id}/delete
+    defaults: { _controller: "AcmeEntidadReceptoraBundle:ServicioPrestado:delete" }
+    requirements: { _method: post|delete }

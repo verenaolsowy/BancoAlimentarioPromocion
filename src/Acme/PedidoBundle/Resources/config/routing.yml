@@ -1,3 +1,123 @@
-acme_pedido_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AcmePedidoBundle:Default:index }
+pedido:
+    path:     /
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:index" }
+
+pedido_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:show" }
+
+pedido_new:
+    path:     /new
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:new" }
+
+pedido_create:
+    path:     /create
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:create" }
+    requirements: { _method: post }
+
+pedido_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:edit" }
+
+pedido_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:update" }
+    requirements: { _method: post|put }
+
+pedido_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmePedidoBundle:PedidoModelo:delete" }
+    requirements: { _method: post|delete }
+
+estado_pedido:
+    path:     /estadopedido
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:index" }
+
+estado_pedido_show:
+    path:     /estadopedido/{id}/show
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:show" }
+
+estado_pedido_new:
+    path:     /estadopedido/new
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:new" }
+
+estado_pedido_create:
+    path:     /estadopedido/create
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:create" }
+    requirements: { _method: post }
+
+estado_pedido_edit:
+    path:     /estadopedido/{id}/edit
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:edit" }
+
+estado_pedido_update:
+    path:     /estadopedido/{id}/update
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:update" }
+    requirements: { _method: post|put }
+
+estado_pedido_delete:
+    path:     /estadopedido/{id}/delete
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:delete" }
+    requirements: { _method: post|delete }
+
+turno_entrega:
+    path:     /
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:index" }
+
+turno_entregapedido_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:show" }
+
+turno_entrega_new:
+    path:     /new
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:new" }
+
+turno_entrega_create:
+    path:     /create
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:create" }
+    requirements: { _method: post }
+
+turno_entrega_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:edit" }
+
+turno_entrega_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:update" }
+    requirements: { _method: post|put }
+
+turno_entrega_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmePedidoBundle:EstadoPedido:delete" }
+    requirements: { _method: post|delete }
+
+entrega_directa:
+    path:     /
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:index" }
+
+entrega_directa_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:show" }
+
+entrega_directa_new:
+    path:     /new
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:new" }
+
+entrega_directa_create:
+    path:     /create
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:create" }
+    requirements: { _method: post }
+
+entrega_directa_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:edit" }
+
+entrega_directa_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:update" }
+    requirements: { _method: post|put }
+
+entrega_directa_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmePedidoBundle:EntregaDirecta:delete" }
+    requirements: { _method: post|delete }

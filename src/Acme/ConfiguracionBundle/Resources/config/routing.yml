@@ -1,3 +1,30 @@
-acme_configuracion_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AcmeConfiguracionBundle:Default:index }
+configuracion:
+    path:     /
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:index" }
+
+configuracion_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:show" }
+
+configuracion_new:
+    path:     /new
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:new" }
+
+configuracion_create:
+    path:     /create
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:create" }
+    requirements: { _method: post }
+
+configuracion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:edit" }
+
+configuracion_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:update" }
+    requirements: { _method: post|put }
+
+configuracion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeConfiguracionBundle:Configuracion:delete" }
+    requirements: { _method: post|delete }

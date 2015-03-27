@@ -103,10 +103,10 @@ class AlimentoPedido
     /**
      * Set detalle_alimento_id
      *
-     * @param \Acme\AliementoBundle\Entity\DetalleAlimento $detalleAlimentoId
+     * @param \Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimentoId
      * @return AlimentoPedido
      */
-    public function setDetalleAlimentoId(\Acme\AliementoBundle\Entity\DetalleAlimento $detalleAlimentoId = null)
+    public function setDetalleAlimentoId(\Acme\AlimentoBundle\Entity\DetalleAlimento $detalleAlimentoId = null)
     {
         $this->detalle_alimento_id = $detalleAlimentoId;
 
@@ -116,7 +116,7 @@ class AlimentoPedido
     /**
      * Get detalle_alimento_id
      *
-     * @return \Acme\AliementoBundle\Entity\DetalleAlimento 
+     * @return \Acme\AlimentoBundle\Entity\DetalleAlimento 
      */
     public function getDetalleAlimentoId()
     {

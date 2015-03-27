@@ -302,7 +302,7 @@ class PedidoModeloController extends Controller
 		$table->execute();
 		$resultado= $table->fetchAll();
 		
-		$this->render('AcmePedidoBundle:AlimentoPedido:layout.html.twig');
+		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoCircular.html.twig', array(
             'pedidos' => $resultado,
 			'action' => $this->generateUrl('impresion_grafico_circular'),

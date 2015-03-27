@@ -252,8 +252,8 @@ class PedidoModeloController extends Controller
 		
 		$fecha1= $request->request->get('fecha1');
 		$fecha2= $request->request->get('fecha2');
-		if ($fecha1==null){ $fecha1='01-01-1990';}
-		if ($fecha2==null){ $fecha2='01-01-2100';}
+		if ($fecha1==null){ $fecha1='1990-01-01';}
+		if ($fecha2==null){ $fecha2='2100-01-01';}
 		
 		$rsm = new ResultSetMappingBuilder($this->getDoctrine()->getManager());
 		$table = $this->getDoctrine()->getManager()->createNativeQuery('SELECT SUM(peso_unitario*cantidad) AS cant, fecha FROM pedidomodelo 
@@ -268,12 +268,17 @@ class PedidoModeloController extends Controller
 		
 		$table = $table->getResult();
 
-		foreach($table as $t) {
-			$choices[$t->getId()] = $t;
-		}
+		//foreach($table as $t) {
+		//	$choices[$t->getId()] = $t;
+		//}
+		
+		echo('test | ');
+		if ($table==null){echo('table es null');}else{echo($table['cant']);}
+		
 		
 		return $this->render('AcmePedidoBundle:AlimentoPedido:graficoBarra.html.twig', array(
             'pedidos' => $choices,
+			'action' => $this->generateUrl('impresion_grafico_barra'),
         ));
 		
 }

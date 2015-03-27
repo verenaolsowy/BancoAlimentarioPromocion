@@ -82,8 +82,7 @@
               title: {text: 'Kilos de pedidos entregados por fecha'},
     		  tooltip: { enabled: false },
     		  plotOptions: {column: { depth: 25 } },
-             //{# xAxis: {categories: [{% for pedido in pedidos %}'{{pedido.fecha}}',{% endfor %}]},    #} //linea original! descomentar dsps 
-    		  xAxis: {categories: ['17-02-2014','15-06-2014']},
+              xAxis: {categories: [{% for pedido in pedidos %}'{{pedido.fecha}}',{% endfor %}]},
 			  yAxis: {
     				min: 0,
     				title: {
@@ -91,7 +90,7 @@
     				}
     			},
     			
-              // {# series: [{data: [{% for pedido in pedidos %}{{pedido.cant}},{% endfor %}], name:"Entregas",}]  #} //linea original!
+              series: [{data: [{% for pedido in pedidos %}{{pedido.cant}},{% endfor %}], name:"Entregas",}]
 			  series: [{data: [23,56], name:"Entregas",}]
     		  
             });
@@ -108,7 +107,7 @@
 
     <div class="estadisticas">
       <br>
- 	<form action="index.php?controller=PedidosController&action=graficoBarraConFechas" method="post" >
+ 	<form action="{{action}}" method="post" >
 				
 		Fecha de inicio: <input type="text" id="datepicker1" name="fecha1" required >	
 		Fecha de fin: <input type="text" id="datepicker2" name="fecha2" required >

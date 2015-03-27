@@ -5,67 +5,24 @@
     <a class="toggleMenu" href="#">Menu</a>
       <ul class="nav">
       	
-        <li><a href="">Donantes</a>
-            <ul>
-              <li><a href="index.php?controller=DonantesController&action=formularioAlta">Agregar</a></li>
-              <li><a href="index.php?controller=DonantesController&action=listar&origen=Backend">Listar, Borrar o Modificar</a></li>
-            </ul>
+        <li><a href="{{path('donante')}}">Donantes</a>
         </li>
-
-
-        <li><a href="">Pedidos</a>
-            <ul>
-              <li><a href="index.php?controller=PedidosController&action=formularioAltaPedidoModelo">Agregar</a></li>
-              <li><a href="index.php?controller=PedidosController&action=listadoPedidosModelo">Listar, Borrar o Modificar</a></li>
-              <li><a href="index.php?controller=EntregaDirectaController&action=formularioAltaEntregaDirecta">Entrega directa</a></li>
-              <li><a href="index.php?controller=EntregaDirectaController&action=listadoEntregasDirectas">Listar, Borrar o Modificar entrega directa</a></li>
-              <li><a href="index.php?controller=PedidosController&action=agenda">Agenda</a></li>
-            </ul>
+        <li><a href="{{path('pedido')}}">Pedidos</a>
+        <li><a href="{{path('entidadreceptora')}}">Entidades Receptoras</a>
         </li>
-        <li><a href="">Envios</a>
-            <ul>
-              <li><a href="index.php?controller=RecursosExternosController&action=formularioEnvios">Administrar Envios</a></li>
-            </ul>
+        <li><a href="{{path('alimento')}}">Alimentos</a>
         </li>
-        <li><a href="">Entidades Receptoras</a>
-            <ul>
-              <li><a href="index.php?controller=EntidadesController&action=llamarFormAltaEntidad">Agregar una Entidad</a></li>
-              <li><a href="index.php?controller=EntidadesController&action=listarEntidades">Listar, Borrar o Modificar</a></li>
-              <li><a href="">Agregar tipo de Necesidad </a></li>
-              <li><a href="">Listar, Borrar o Modificar Necesidades </a></li>
-              <li><a href="">Agregar tipo de Servicio </a></li>
-              <li><a href="">Listar, Borrar o Modificar Servicios Prestados</a></li>
-              <li><a href="">Agregar tipo de Estado </a></li>
-              <li><a href="">Listar, Borrar o Modificar Estados</a></li>
-            </ul>
-        </li>
-
-        <li><a href="">Alimentos</a>
-            <ul >
-              <li><a href="index.php?controller=AlimentoController&action=formularioAltaPaquete">Agregar un paquete</a></li>
-			  <li><a href="index.php?controller=AlimentoController&action=formularioAltaTipoAlimento">Agregar un tipo de alimento</a></li>
-              <li><a href="index.php?controller=AlimentoController&action=listarAlimentos">Listar, Borrar o Modificar</a></li>
-
-            </ul>  
-        </li>
-
-        <li><a href="">Usuarios</a>
-            <ul >
-              <li><a href="index.php?controller=UsuariosController&action=dibujarFormAltaUsuarios">Agregar un Usuario</a></li>
-              <li><a href="index.php?controller=UsuariosController&action=listarUsuarios">Listar, Borrar o Modificar</a></li>
-
-            </ul>  
+        <li><a href="{{path('user')}}">Usuarios</a> 
         </li>
 		
-        <li><a href="">Estad&iacute;sticas</a>
-            <ul >
-              <li><a href="index.php?controller=PedidosController&action=graficoBarra">Pedidos entre dos fechas</a></li>
-              <li><a href="index.php?controller=PedidosController&action=graficoCircular">Kilos entregados a E.R.</a></li>
-			<li><a href="index.php?controller=PedidosController&action=alimentosVencidos">Alimentos vencidos</a></li>
-            </ul>  
+        <li><a href="{{path('impresion_grafico_barra')}}">Entregas Por Fecha</a>
+        </li>
+        <li><a href="{{path('impresion_grafico_circular')}}">Entregas A Entidades</a>
+        </li>
+        <li><a href="{{path('impresion_vencidos')}}">Alimentos Vencidos</a>
         </li>
 		
-        <li><a href="index.php?controller=PedidosController&action=config">Configuración</a> 
+        <li><a href="{{path('configuracion')}}">Configuración</a> 
         </li>
 		
       </ul>

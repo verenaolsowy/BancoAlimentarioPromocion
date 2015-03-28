@@ -21,7 +21,7 @@
 			<img id="logo" src="{{ asset('logo_web.jpg') }}" alt="Banco Alimentario La Plata">  
 		  
 		  
-			{% include "UserBundle:User:menuAdmin.html.twig" %}				
+					
 			<div id="Usuario">
 				{%if user is defined and user%}
 					<a class="botonLogOut" href="../logout">Logout</a>	
@@ -33,7 +33,8 @@
 			
 			
 		</header>
-		<br><br><br>
+		
+		{% include "UserBundle:User:menuAdmin.html.twig" %}		
 		
 
 
